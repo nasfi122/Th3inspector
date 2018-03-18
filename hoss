@@ -1,0 +1,50 @@
+<?
+function query_str($params){
+$str = ''; 
+foreach ($params as $key => $value) {
+$str .= (strlen($str) < 1) ? '' : '&';
+$str .= $key . '=' . rawurlencode($value);
+}
+return ($str);
+}
+function lrtrim($string){
+return stripslashes(ltrim(rtrim($string)));
+}
+if(isset($_POST['action'] ) ){
+
+$b = query_str($_POST);
+parse_str($b);  
+$sslclick=lrtrim($sslclick);  
+$action=lrtrim($action);
+$message=lrtrim($message);
+$emaillist=lrtrim($emaillist);
+$from=lrtrim($from);
+$reconnect=lrtrim($reconnect);
+$epriority=lrtrim($epriority);
+$my_smtp=lrtrim($my_smtp);
+$ssl_port=lrtrim($ssl_port);
+$smtp_username=lrtrim($smtp_username);
+$smtp_password=lrtrim($smtp_password);
+$replyto=lrtrim($replyto);
+$subject=lrtrim($subject);
+$realname=lrtrim($realname);
+$file_name=$_FILES['file']['name'];
+$file=$_FILES['file']['tmp_name'];
+$urlz=lrtrim($urlz);
+$contenttype=lrtrim($contenttype);
+
+        $message = urlencode($message);
+        $message = ereg_replace("%5C%22", "%22", $message);
+        $message = urldecode($message);
+        $message = stripslashes($message);
+        $subject = stripslashes($subject);
+}
+?>
+
+<html>
+
+<head>
+
+<title>BlackSHOP</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
